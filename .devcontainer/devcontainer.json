@@ -1,0 +1,27 @@
+{
+  "name": "scratch-gui",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20",
+      "nodeGypDependencies": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "christian-kohler.npm-intellisense",
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
+        "fnando.linter",
+        "github.copilot",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "ms-vscode.live-server",
+        "redhat.vscode-yaml",
+        "simonsiefke.svg-preview",
+        "unifiedjs.vscode-remark"
+      ]
+    }
+  }
+}
