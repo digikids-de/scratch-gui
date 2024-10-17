@@ -269,6 +269,7 @@ class SoundTab extends React.Component {
                         vm={this.props.vm}
                         onNewSound={this.handleNewSound}
                         onRequestClose={this.props.onRequestCloseSoundLibrary}
+                        soundLibraryContent={this.props.soundLibraryContent}
                     />
                 ) : null}
             </AssetPanel>
@@ -301,7 +302,8 @@ SoundTab.propTypes = {
             name: PropTypes.string.isRequired
         }))
     }),
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    soundLibraryContent: PropTypes.arrayOf(PropTypes.object)
 };
 
 const mapStateToProps = state => ({

@@ -37,7 +37,7 @@ class CostumeLibrary extends React.PureComponent {
     render () {
         return (
             <LibraryComponent
-                data={costumeLibraryContent}
+                data={this.props.costumeLibraryContent || costumeLibraryContent}
                 id="costumeLibrary"
                 tags={spriteTags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
@@ -51,7 +51,8 @@ class CostumeLibrary extends React.PureComponent {
 CostumeLibrary.propTypes = {
     intl: intlShape.isRequired,
     onRequestClose: PropTypes.func,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    costumeLibraryContent: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default injectIntl(CostumeLibrary);

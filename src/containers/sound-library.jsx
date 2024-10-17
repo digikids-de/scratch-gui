@@ -151,7 +151,7 @@ class SoundLibrary extends React.PureComponent {
     }
     render () {
         // @todo need to use this hack to avoid library using md5 for image
-        const soundLibraryThumbnailData = soundLibraryContent.map(sound => {
+        const soundLibraryThumbnailData = (this.props.soundLibraryContent || soundLibraryContent).map(sound => {
             const {
                 md5ext,
                 ...otherData
@@ -185,7 +185,8 @@ SoundLibrary.propTypes = {
     isRtl: PropTypes.bool,
     onNewSound: PropTypes.func.isRequired,
     onRequestClose: PropTypes.func,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    soundLibraryContent: PropTypes.arrayOf(PropTypes.object)
 };
 
 const mapStateToProps = state => ({
