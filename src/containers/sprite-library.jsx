@@ -35,7 +35,7 @@ class SpriteLibrary extends React.PureComponent {
     render () {
         return (
             <LibraryComponent
-                data={spriteLibraryContent}
+                data={this.props.spriteLibraryContent || spriteLibraryContent}
                 id="spriteLibrary"
                 tags={spriteTags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
@@ -50,7 +50,8 @@ SpriteLibrary.propTypes = {
     intl: intlShape.isRequired,
     onActivateBlocksTab: PropTypes.func.isRequired,
     onRequestClose: PropTypes.func,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    spriteLibraryContent: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default injectIntl(SpriteLibrary);

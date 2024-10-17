@@ -44,6 +44,7 @@ const TargetPane = ({
     stage,
     stageSize,
     sprites,
+    spriteLibraryContent,
     vm,
     ...componentProps
 }) => (
@@ -95,6 +96,7 @@ const TargetPane = ({
                         vm={vm}
                         onActivateBlocksTab={onActivateBlocksTab}
                         onRequestClose={onRequestCloseSpriteLibrary}
+                        spriteLibraryContent={spriteLibraryContent}
                     />
                 ) : null}
             </div>
@@ -158,6 +160,7 @@ TargetPane.propTypes = {
     sprites: PropTypes.objectOf(spriteShape),
     stage: spriteShape,
     stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
+    spriteLibraryContent: PropTypes.arrayOf(PropTypes.object),
     vm: PropTypes.instanceOf(VM)
 };
 

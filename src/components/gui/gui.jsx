@@ -123,6 +123,10 @@ const GUIComponent = props => {
         telemetryModalVisible,
         theme,
         tipsLibraryVisible,
+        backdropLibraryContent,
+        costumeLibraryContent,
+        soundLibraryContent,
+        spriteLibraryContent,
         vm,
         ...componentProps
     } = omit(props, 'dispatch');
@@ -203,12 +207,14 @@ const GUIComponent = props => {
                     <CostumeLibrary
                         vm={vm}
                         onRequestClose={onRequestCloseCostumeLibrary}
+                        costumeLibraryContent={costumeLibraryContent}
                     />
                 ) : null}
                 {backdropLibraryVisible ? (
                     <BackdropLibrary
                         vm={vm}
                         onRequestClose={onRequestCloseBackdropLibrary}
+                        backdropLibraryContent={backdropLibraryContent}
                     />
                 ) : null}
                 <MenuBar
@@ -340,7 +346,12 @@ const GUIComponent = props => {
                                     {costumesTabVisible ? <CostumeTab vm={vm} /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
-                                    {soundsTabVisible ? <SoundTab vm={vm} /> : null}
+                                    {soundsTabVisible ? (
+                                        <SoundTab
+                                            vm={vm}
+                                            soundLibraryContent={soundLibraryContent}
+                                        />
+                                    ) : null}
                                 </TabPanel>
                             </Tabs>
                             {backpackVisible ? (
@@ -360,6 +371,7 @@ const GUIComponent = props => {
                                 <TargetPane
                                     stageSize={stageSize}
                                     vm={vm}
+                                    spriteLibraryContent={spriteLibraryContent}
                                 />
                             </Box>
                         </Box>
@@ -436,6 +448,10 @@ GUIComponent.propTypes = {
     telemetryModalVisible: PropTypes.bool,
     theme: PropTypes.string,
     tipsLibraryVisible: PropTypes.bool,
+    backdropLibraryContent: PropTypes.arrayOf(PropTypes.object),
+    costumeLibraryContent: PropTypes.arrayOf(PropTypes.object),
+    soundLibraryContent: PropTypes.arrayOf(PropTypes.object),
+    spriteLibraryContent: PropTypes.arrayOf(PropTypes.object),
     vm: PropTypes.instanceOf(VM).isRequired
 };
 GUIComponent.defaultProps = {
